@@ -26,7 +26,7 @@
   --shadow-l: 0 2px 12px rgba(201,168,76,.08);
   --font-h: 'Montserrat', sans-serif;
   --font-b: 'Inter', sans-serif;
-  --ts: 3px 3px 8px rgba(0,0,0,1),-3px -3px 8px rgba(0,0,0,1),0 4px 16px rgba(0,0,0,1),0 0 20px rgba(0,0,0,0.8);
+  --ts: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000, 0 0 6px rgba(0,0,0,.7);
 }
 
 @keyframes border-spin {
