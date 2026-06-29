@@ -112,6 +112,8 @@ async function loadFrame(idx) {
         if (pctEl) pctEl.textContent = visualPct + '%';
         if (realPct >= PRELOADER_THRESHOLD) {
           preloaderDismissed = true;
+          isReady = true;
+          drawFrame(0);
           const loader = document.getElementById('loader');
           if (loader) { loader.classList.add('fade-out'); setTimeout(() => loader.remove(), 900); }
           if (typeof pages !== 'undefined' && pages[0]) pages[0].classList.add('is-active');
@@ -124,6 +126,11 @@ async function loadFrame(idx) {
         const txt = document.getElementById('siteLoadingText');
         if (fill) fill.style.width = phase2Pct + '%';
         if (txt) txt.textContent = 'Loading video ' + realPct + '%';
+      if (loaded >= TOTAL_FRAMES) {
+        if (txt) txt.textContent = 'Loading complete';
+        const sbar = document.getElementById('siteLoadingBar');
+        if (sbar) { sbar.style.opacity='0'; setTimeout(()=>{ if(sbar) sbar.remove(); }, 600); }
+      }
       }
       resolve();
     };
